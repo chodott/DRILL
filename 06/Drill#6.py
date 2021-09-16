@@ -4,11 +4,23 @@ open_canvas()
 grass = load_image('grass.png')
 character = load_image('character.png')
 
-x=0
+x=400
 y=90
 r = 250
 rad = 270
 while -1:
+    # 캐릭터 원 운동
+    while(rad>-90):
+        clear_canvas_now()
+        grass.draw_now(400,30)
+        y = math.sin(rad/360*2*math.pi)*r
+        x = math.cos(rad/360*2*math.pi)*r
+        character.draw_now(x+400,y+340)
+        rad-=1
+        delay(0.01)
+    rad = 270
+    x = 400
+    y = 90
     # 캐릭터 사각 운동
     while(x<800):
         clear_canvas_now()
@@ -40,6 +52,5 @@ while -1:
         character.draw_now(x,y)
         x = x+2
         delay(0.01)
-    # 캐릭터 원 운동
     
 close_canvas()
