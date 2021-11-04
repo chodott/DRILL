@@ -124,7 +124,8 @@ class DashState:
 next_state_table = {
     IdleState:{RIGHT_UP: RunState, LEFT_UP: RunState,
                 RIGHT_DOWN: RunState, LEFT_DOWN: RunState,
-                SLEEP_TIMER: SleepState},
+                SLEEP_TIMER: SleepState, SHIFT_UP: IdleState,
+               SHIFT_DOWN: IdleState},
     RunState: {RIGHT_UP: IdleState, LEFT_UP: IdleState,
                LEFT_DOWN: IdleState, RIGHT_DOWN: IdleState,
                SHIFT_DOWN: DashState, SHIFT_UP:RunState},
@@ -132,6 +133,7 @@ next_state_table = {
                 LEFT_UP: RunState, RIGHT_UP: RunState},
     DashState:{RIGHT_UP: IdleState, LEFT_UP: IdleState,
                LEFT_UP: IdleState, RIGHT_UP: IdleState,
+               LEFT_DOWN: IdleState, RIGHT_DOWN: IdleState,
                SHIFT_UP: RunState}
 }
 
